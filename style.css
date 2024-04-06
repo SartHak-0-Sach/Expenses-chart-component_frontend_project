@@ -1,5 +1,533 @@
-*{
-    margin: 0;
-    padding: 0;
+/* @docs
+label: Core Remedies
+version: 0.1.0-beta.2
+
+note: |
+  These remedies are recommended
+  as a starter for any project.
+
+category: file
+*/
+
+/* @docs
+label: Box Sizing
+
+note: |
+  Use border-box by default, globally.
+
+category: global
+*/
+*,
+::before,
+::after {
     box-sizing: border-box;
 }
+
+/* @docs
+label: Line Sizing
+
+note: |
+  Consistent line-spacing,
+  even when inline elements have different line-heights.
+
+links:
+  - https://drafts.csswg.org/css-inline-3/#line-sizing-property
+
+category: global
+*/
+
+/* @docs
+label: Body Margins
+
+note: |
+  Remove the tiny space around the edge of the page.
+
+category: global
+*/
+body {
+    margin: 0;
+}
+
+/* @docs
+label: Hidden Attribute
+
+note: |
+  Maintain `hidden` behaviour when overriding `display` values.
+
+  category: global
+*/
+[hidden] {
+    display: none;
+}
+
+/* @docs
+label: Heading Sizes
+
+note: |
+  Switch to rem units for headings
+
+category: typography
+*/
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1.17rem;
+}
+h4 {
+    font-size: 1rem;
+}
+h5 {
+    font-size: 0.83rem;
+}
+h6 {
+    font-size: 0.67rem;
+}
+
+/* @docs
+label: H1 Margins
+
+note: |
+  Keep h1 margins consistent, even when nested.
+
+category: typography
+*/
+h1 {
+    margin: 0.67em 0;
+}
+
+/* @docs
+label: Pre Wrapping
+
+note: |
+  Overflow by default is bad...
+
+category: typography
+*/
+pre {
+    white-space: pre-wrap;
+}
+
+/* @docs
+label: Horizontal Rule
+
+note: |
+  1. Solid, thin horizontal rules
+  2. Remove Firefox `color: gray`
+  3. Remove default `1px` height, and common `overflow: hidden`
+
+category: typography
+*/
+hr {
+    border-style: solid;
+    border-width: 1px 0 0;
+    color: inherit;
+    height: 0;
+    overflow: visible;
+}
+
+/* @docs
+label: Responsive Embeds
+
+note: |
+  1. Block display is usually what we want
+  2. The `vertical-align` removes strange space-below in case authors overwrite the display value
+  3. Responsive by default
+  4. Audio without `[controls]` remains hidden by default
+
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    max-width: 100%;
+}
+audio:not([controls]) {
+    display: none;
+}
+
+/* @docs
+label: Responsive Images
+
+note: |
+  These new elements display inline by default,
+  but that's not the expected behavior for either one.
+  This can interfere with proper layout and aspect-ratio handling.
+
+  1. Remove the unnecessary wrapping `picture`, while maintaining contents
+  2. Source elements have nothing to display, so we hide them entirely
+
+category: embedded elements
+*/
+picture {
+    display: contents;
+}
+source {
+    display: none;
+}
+
+/* @docs
+label: Aspect Ratios
+
+note: |
+  Maintain intrinsic aspect ratios when `max-width` is applied.
+  `iframe`, `embed`, and `object` are also embedded,
+  but have no intrinsic ratio,
+  so their `height` needs to be set explicitly.
+
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas {
+    height: auto;
+}
+
+/* @docs
+label: Audio Width
+
+note: |
+  There is no good reason elements default to 300px,
+  and audio files are unlikely to come with a width attribute.
+
+category: embedded elements
+*/
+audio {
+    width: 100%;
+}
+
+/* @docs
+label: Image Borders
+
+note: |
+  Remove the border on images inside links in IE 10 and earlier.
+
+category: legacy browsers
+*/
+img {
+    border-style: none;
+}
+
+/* @docs
+label: SVG Overflow
+
+note: |
+  Hide the overflow in IE 10 and earlier.
+
+category: legacy browsers
+*/
+svg {
+    overflow: hidden;
+}
+
+/* @docs
+label: HTML5 Elements
+
+note: |
+  Default block display on HTML5 elements.
+  For oldIE to apply this styling one needs to add some JS as well (i.e. `document.createElement("main")`)
+
+links:
+  - https://www.sitepoint.com/html5-older-browsers-and-the-shiv/
+
+category: legacy browsers
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+
+/* @docs
+label: Checkbox & Radio Inputs
+
+note: |
+  1. Add the correct box sizing in IE 10
+  2. Remove the padding in IE 10
+
+category: legacy browsers
+*/
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    font-family: "DM Sans", sans-serif;
+    font-size: 4vw;
+    font-weight: 700;
+  }
+  
+  .title {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  
+  .balance {
+    color: white;
+  }
+  .balance p {
+    font-size: 1.6rem;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+    color: #382314;
+  }
+  
+  .day figcaption {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 400;
+    color: #92857a;
+  }
+  
+  .footer-main {
+    color: #382314;
+  }
+  .footer-main .title {
+    color: #92857a;
+  }
+  
+  .total p {
+    font-size: 2rem;
+  }
+  
+  body {
+    background-color: #f8e9dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  .container {
+    width: 91.4666666667vw;
+    height: 142.4vw;
+  }
+  
+  header {
+    background-color: #ec755d;
+    border-radius: 0.6666666667rem;
+    padding: 1.4rem;
+    margin-bottom: 1.0666666667rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  header img {
+    width: 19.9335548173%;
+  }
+  
+  .title {
+    margin-top: 0;
+    margin-bottom: 0.2666666667em;
+  }
+  
+  main {
+    height: 78.8389513109%;
+    background-color: #fffbf6;
+    padding: 1.6em 1.3333333333em;
+    border-radius: 0.6666666667em;
+  }
+  main h1 {
+    margin-top: 0;
+    margin-bottom: 3.4666666667rem;
+  }
+  
+  .week {
+    width: 100%;
+    height: 53.8873994638%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .week .day {
+    width: 10.8910891089%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .week .day figcaption {
+    margin-top: 0.7333333333rem;
+    margin-bottom: 1.6rem;
+  }
+  .week .day .bar {
+    width: 100%;
+    height: 0;
+    transition: height 2.5s ease-out;
+    background-color: #ec755d;
+    border-radius: 0.2rem;
+  }
+  .week .day .bar:hover {
+    background-color: #ff9b86;
+  }
+  
+  hr {
+    background-color: #f8e9dd;
+    border: none;
+    height: 0.1333333333rem;
+    margin-top: 0;
+    margin-bottom: 1.6rem;
+  }
+  
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    height: 4.2rem;
+  }
+  
+  .total {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .delta {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: end;
+  }
+  .delta .title {
+    margin-bottom: 0;
+  }
+  
+  .footer-body {
+    position: absolute;
+    bottom: 5%;
+    font-size: 0.7333333333rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .footer-body a {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+  }
+  
+  .footer-body a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (min-width: 700px) {
+    html {
+      font-size: 18px;
+    }
+    .balance p {
+      font-size: 32px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    .day figcaption {
+      font-size: 15px;
+    }
+    .total p {
+      font-size: 48px;
+      line-height: 62px;
+    }
+    .container {
+      width: 540px;
+      height: 660px;
+    }
+    header {
+      border-radius: 20px;
+      padding: 26px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+    }
+    header img {
+      width: 72px;
+      margin-right: 7px;
+    }
+    .title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    main {
+      height: 511px;
+      padding: 32px 40px;
+      border-radius: 20px;
+    }
+    main h1 {
+      margin-top: 0;
+      margin-bottom: 66px;
+    }
+    .week {
+      height: 210px;
+    }
+    .week .day {
+      width: 50.36px;
+    }
+    .week .day figcaption {
+      margin-top: 8px;
+      margin-bottom: 32px;
+    }
+    .week .day .bar {
+      border-radius: 5px;
+    }
+    hr {
+      height: 2px;
+      margin-bottom: 32px;
+    }
+    .footer-main {
+      height: 87px;
+    }
+    .footer-main .title {
+      margin: 0;
+    }
+    .footer-body {
+      position: absolute;
+      bottom: 4%;
+      font-size: 13px;
+    }
+  }
+  .bar {
+    position: relative;
+  }
+  
+  .bar::after {
+    content: attr(data-amount);
+    display: block;
+    position: absolute;
+    background-color: #382314;
+    color: #fffbf6;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 8.25px;
+    text-align: center;
+    line-height: 40px;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translate(-50%) scale(0);
+    transition: transform ease-out 150ms;
+  }
+  
+  .bar:hover::after {
+    transform: translate(-50%) scale(1);
+  }

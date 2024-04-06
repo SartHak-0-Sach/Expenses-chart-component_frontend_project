@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sarthak Sachdev" />
+  <meta name="description"
+    content="This is a solution to the 'Expenses chart component' challenge on Frontend Mentor" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Expenses chart component</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Expenses chart component</title>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-  My balance
-  $921.48
-
-  Spending - Last 7 days
-
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun
-
-  Total this month
-  $478.33
-
-  +2.4%
-  from last month
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="container">
+    <header>
+      <div class="balance">
+        <h2 class="title">My balance</h2>
+        <p>$921.48</p>
+      </div>
+      <img src="images/logo.svg" alt="Logo" />
+    </header>
+    <main>
+      <h1>Spending - Last 7 days</h1>
+      <figure class="week">
+        <figure class="day">
+          <div id="mon" class="bar"></div>
+          <figcaption>mon</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="tue" class="bar"></div>
+          <figcaption>tue</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="wed" class="bar"></div>
+          <figcaption>wed</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="thu" class="bar"></div>
+          <figcaption>thu</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="fri" class="bar"></div>
+          <figcaption>fri</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="sat" class="bar"></div>
+          <figcaption>sat</figcaption>
+        </figure>
+        <figure class="day">
+          <div id="sun" class="bar"></div>
+          <figcaption>sun</figcaption>
+        </figure>
+      </figure>
+      <hr />
+      <footer class="footer-main">
+        <div class="total">
+          <h2 class="title">Total this month</h2>
+          <p>$478.33</p>
+        </div>
+        <div class="delta">
+          <!-- I changed the order for screen reader users -->
+          <h2 class="title">from last month</h2>
+          <p>+2.4%</p>
+        </div>
+      </footer>
+    </main>
   </div>
+
+  <footer class="footer-body">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>.
+    Coded by
+    <a href="https://www.gdsimoes.com">Sarthak Sachdev</a>.
+  </footer>
+  <script src="script.js" defer></script>
+
 </body>
+
 </html>
